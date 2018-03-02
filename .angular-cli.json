@@ -102,6 +102,12 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "guide-pages",
+      "root": "libs/guide-pages/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ]
 }
