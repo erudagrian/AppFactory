@@ -46,7 +46,7 @@
         "lib"
       ]
     },
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   },
   "warnings": {
@@ -69,7 +69,7 @@
       "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -94,7 +94,7 @@
       "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -106,6 +106,18 @@
     {
       "name": "guide-pages",
       "root": "libs/guide-pages/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "shell",
+      "root": "libs/shell/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "ui",
+      "root": "libs/ui/src",
       "test": "../../../test.js",
       "appRoot": ""
     }
