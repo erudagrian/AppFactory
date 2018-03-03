@@ -1,13 +1,8 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "outDir": "./dist/out-tsc/spec",
-        "module": "commonjs",
-        "target": "es5",
-        "types": [
-            "jasmine",
-            "node"
-        ],
+        "outDir": "./out-tsc/app",
+        "module": "es2015",
         "baseUrl": ".",
         "paths": {
             "@appFactory/*": [
@@ -15,13 +10,10 @@
             ]
         }
     },
-    "include": [
-        "**/*.ts"
-    ],
     "exclude": [
-        "**/e2e/*.ts",
+        "**/*.spec.ts",
         "**/*.e2e-spec.ts",
-        "**/*.po.ts",
+        "functions",
         "node_modules",
         "tmp"
     ]

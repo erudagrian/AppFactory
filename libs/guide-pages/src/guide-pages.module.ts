@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
+import { UiModule } from "@appFactory/ui";
+
+import { GuidePagesRoutingModule } from './guide-pages-routing.module';
+import { CoverComponent } from './cover/cover.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
-    ])
+    GuidePagesRoutingModule,
+    UiModule,
+  ],
+  declarations: [
+    CoverComponent
   ]
 })
 export class GuidePagesModule {}

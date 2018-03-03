@@ -3,9 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'programs',
-    loadChildren: '@appFactory/guide-pages#GuidePagesModule'
-  }
+    path: '',
+    pathMatch: 'full',
+    loadChildren: '@appFactory/guide-pages#GuidePagesModule',
+    // redirectTo: 'guide',
+  },
+  // {
+  //   path: 'guide',
+  //   loadChildren: '@appFactory/guide-pages#GuidePagesModule',
+  // },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   loadChildren: '@appFactory/guide-pages#GuidePagesModule'
+  // }
   //   {
   //     path: '',
   //     redirectTo: 'programs',
