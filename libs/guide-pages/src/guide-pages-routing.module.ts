@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoverComponent } from './cover/cover.component';
+import { GuidesComponent } from './guides/guides.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: CoverComponent,
+    component: GuidesComponent,
     data: {
-      title: 'Cover'
+      title: 'Guías'
     }
   }
 ];

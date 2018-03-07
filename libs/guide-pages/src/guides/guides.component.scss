@@ -1,0 +1,22 @@
+@mixin clear-fix-after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.guides {
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        moleskine-notebook {
+            display: flex;
+            &:after {
+                @include clear-fix-after;
+            }
+        }
+        &:after {
+            @include clear-fix-after;
+        }
+    }
+}

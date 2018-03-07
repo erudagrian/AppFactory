@@ -1,18 +1,28 @@
-
-<div style="text-align:center">
-  <h1>
-    Welcome to an Angular CLI app built with Nrwl Nx!
-  </h1>
-  <img width="300" src="assets/nx-logo.png">
+<div class="site-container d-flex flex-row row">
+    <div class="sidebar col-3">
+        <div class="favorites sidebar-section col-8 offset-2 d-flex flex-column justify-content-start">
+            <div class="sidebar-section-title">
+                Favorites
+            </div>
+            <ul class="sidebar-section-items">
+                <li><a>AirDrop</a></li>
+                <li><a>iCloud Drive</a></li>
+                <li><a>Applications</a></li>
+                <li class="active"><a>Israel</a></li>
+                <li><a>Pictures</a></li>
+            </ul>
+        </div>
+        <div class="devices sidebar-section  col-8 offset-2 d-flex flex-column justify-content-start">
+            <div class="sidebar-section-title">
+                Devices
+            </div>
+            <ul class="sidebar-section-items">
+                <li><a>Macbook Pro</a></li>
+                <li><a>Hard Drive</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-9 page-container d-flex flex-column">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
-<h2>Nx</h2>
-
-An open source toolkit for enterprise Angular applications.
-
-Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
-
-<h2>Quick Start & Documentation</h2>
-
-<a href="https://nrwl.io/nx">Watch a 5-minute video on how to get started with Nx.</a>
-<router-outlet></router-outlet>
