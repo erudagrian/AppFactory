@@ -4,7 +4,7 @@
     clear: both;
 }
 
-.guides {
+.structure {
     &__container {
         display: flex;
         flex-flow: row wrap;
@@ -12,7 +12,7 @@
         @media (min-width: 768px) { 
             justify-content: flex-start;
         }
-        moleskine-notebook {
+        paper-sheet {
             display: flex;
             &:after {
                 @include clear-fix-after;

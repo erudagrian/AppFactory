@@ -5,13 +5,13 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: '@appFactory/guide-pages#GuidePagesModule',
-    // redirectTo: 'guide',
+    // loadChildren: '@appFactory/guide-pages#GuidePagesModule',
+    redirectTo: 'guides',
   },
-  // {
-  //   path: 'guide',
-  //   loadChildren: '@appFactory/guide-pages#GuidePagesModule',
-  // },
+  {
+    path: 'guides',
+    loadChildren: '@appFactory/guide-pages#GuidePagesModule',
+  },
   // {
   //   path: '',
   //   pathMatch: 'full',

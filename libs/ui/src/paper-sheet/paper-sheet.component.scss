@@ -1,0 +1,42 @@
+@mixin clear-fix-after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.paper {
+    &-wrapper {
+        display: flex;
+        &:after {
+            @include clear-fix-after;
+        }
+    }
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding: 3em 0;
+    position: relative;
+    height: 250px;
+    width: 175px;
+    background: #fbfae8;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin: 1.5rem;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    }
+    &__content{
+        text-align: center;
+    }
+    &.ruled {
+        background: linear-gradient(to bottom, #fbfae8 9px, #e4e4e4 1px);
+        background-size: 100% 10px;
+    }
+    &.squared {
+        background-image: linear-gradient(#e4e4e4 1px, transparent 1px), linear-gradient(90deg, #e4e4e4 1px, transparent 1px);
+        background-size: 10px 10px, 10px 10px, 2px 2px, 2px 2px;
+    }
+    &.dotted {
+        background: linear-gradient(90deg, #fbfae8 10px, transparent 1%) center, linear-gradient(#fbfae8 10px, transparent 1%) center, #999;
+        background-size: 11px 11px;
+    }
+}
