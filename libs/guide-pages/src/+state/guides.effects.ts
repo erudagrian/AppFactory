@@ -1,25 +1,51 @@
-import {Injectable} from '@angular/core';
-import {Effect, Actions} from '@ngrx/effects';
-import {DataPersistence} from '@nrwl/nx';
-import {of} from 'rxjs/observable/of';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot } from "@angular/router";
+
+import { Store } from "@ngrx/store";
+import { Effect, Actions } from '@ngrx/effects';
+import { DataPersistence } from '@nrwl/nx';
+import { AngularFirestore } from "angularfire2/firestore";
+import { map, mergeMap, take, switchMap } from "rxjs/operators";
 import 'rxjs/add/operator/switchMap';
-import {GuidesState} from './guides.interfaces';
-import {LoadData, DataLoaded} from './guides.actions';
+import 'rxjs/add/operator/concat';
+
+import { GuidesState, Template } from './guides.interfaces';
+import { GuidesActionTypes } from './guides.actions';
+import { StructureComponent } from '../structure/structure.component';
 
 @Injectable()
 export class GuidesEffects {
-  @Effect() loadData = this.dataPersistence.fetch('LOAD_DATA', {
-    run: (action: LoadData, state: GuidesState) => {
-      return {
-        type: 'DATA_LOADED',
-        payload: {}
-      };
+  
+  @Effect()
+  public navigateStructurePage$ = this._dataPersistence.navigation(StructureComponent, {
+    run: (activatedRouteSnapshot: ActivatedRouteSnapshot, state: GuidesState) => {
+      const templatesCollection = this._afs.collection<Template>('templates');
+
+      return templatesCollection
+        .snapshotChanges()
+        .pipe(
+          take(1),
+          map(actions => {
+            const templates = actions.map(action => {
+              const { doc } = action.payload;
+
+              return { id: doc.id, ...doc.data() };
+            });
+
+            return { type: GuidesActionTypes.TEMPLATES_DOCUMENT, payload: templates };
+          })
+        );
     },
 
-    onError: (action: LoadData, error) => {
-      console.error('Error', error);
+    onError: (activatedRouteSnapshot: ActivatedRouteSnapshot, error: any) => {
+
     }
   });
 
-  constructor(private actions: Actions, private dataPersistence: DataPersistence<GuidesState>) {}
+  constructor(
+    private _actions: Actions,
+    private _afs: AngularFirestore,
+    private _store: Store<any>,
+    private _dataPersistence: DataPersistence<GuidesState>,
+  ) {}
 }
