@@ -12,6 +12,13 @@ export const guidesInitialState: Guides = {
   selectedGuideId: ''
 };
 
+export const templatesInitialState: Templates = {
+  ids: [],
+  entities: {},
+  selectedTemplateId: ''
+};
+
+
 // State selectors
 const getFields = (state: any) => state ? state.fields : [];
 const getTemplates = (state: any) => state ? state.templates : [];

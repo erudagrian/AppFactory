@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MoleskineNotebookComponent } from './moleskine-notebook/moleskine-notebook.component';
 import { PaperSheetComponent } from './paper-sheet/paper-sheet.component';
+import { DeskComponent } from './desk/desk.component';
 
 @NgModule({
   imports: [
@@ -10,10 +11,12 @@ import { PaperSheetComponent } from './paper-sheet/paper-sheet.component';
     ReactiveFormsModule,
   ],
   declarations: [
+    DeskComponent,
     MoleskineNotebookComponent,
-    PaperSheetComponent
+    PaperSheetComponent,
   ],
   exports: [
+    DeskComponent,
     MoleskineNotebookComponent,
     PaperSheetComponent
   ]
