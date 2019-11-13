@@ -21,7 +21,7 @@ import { UiModule } from '@appFactory/ui';
     NxModule.forRoot(),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ShellEffects]),
-    StoreRouterConnectingModule,
+    StoreRouterConnectingModule.forRoot(),
     UiModule
   ],
   exports: [
