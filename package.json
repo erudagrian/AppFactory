@@ -61,7 +61,7 @@
     "@angular/compiler-cli": "8.2.14",
     "@angular/language-service": "8.2.14",
     "@nrwl/schematics": "8.7.1",
-    "@schematics/angular": "0.1.17",
+    "@schematics/angular": "8.3.19",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
