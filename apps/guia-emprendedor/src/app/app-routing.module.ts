@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'guides',
-    loadChildren: '@appFactory/guide-pages#GuidePagesModule',
+    loadChildren: () => import('@appFactory/guide-pages').then(m => m.GuidePagesModule),
   },
   // {
   //   path: '',

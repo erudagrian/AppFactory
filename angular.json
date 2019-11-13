@@ -1,0 +1,428 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "guia-emprendedor": {
+      "root": "apps/guia-emprendedor",
+      "sourceRoot": "apps/guia-emprendedor/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/guia-emprendedor",
+            "index": "apps/guia-emprendedor/src/index.html",
+            "main": "apps/guia-emprendedor/src/main.ts",
+            "tsConfig": "apps/guia-emprendedor/src/../../../tsconfig.app.json",
+            "polyfills": "apps/guia-emprendedor/src/polyfills.ts",
+            "assets": [
+              "apps/guia-emprendedor/src/assets",
+              "apps/guia-emprendedor/src/favicon.ico"
+            ],
+            "styles": [
+              "apps/guia-emprendedor/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "staging": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/guia-emprendedor/src/environments/environment.ts",
+                  "with": "apps/guia-emprendedor/src/environments/environment.staging.ts"
+                }
+              ]
+            },
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/guia-emprendedor/src/environments/environment.ts",
+                  "with": "apps/guia-emprendedor/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "guia-emprendedor:build"
+          },
+          "configurations": {
+            "staging": {
+              "browserTarget": "guia-emprendedor:build:staging"
+            },
+            "production": {
+              "browserTarget": "guia-emprendedor:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "guia-emprendedor:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/guia-emprendedor/src/../../../test.js",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "apps/guia-emprendedor/src/polyfills.ts",
+            "tsConfig": "apps/guia-emprendedor/src/../../../tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "apps/guia-emprendedor/src/styles.scss"
+            ],
+            "assets": [
+              "apps/guia-emprendedor/src/assets",
+              "apps/guia-emprendedor/src/favicon.ico"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "./tsconfig.spec.json",
+              "apps/guia-emprendedor/src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "guia-emprendedor-e2e": {
+      "root": "apps/guia-emprendedor/e2e",
+      "sourceRoot": "apps/guia-emprendedor/e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "guia-emprendedor:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/guia-emprendedor/e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "guide-pages": {
+      "root": "libs/guide-pages",
+      "sourceRoot": "libs/guide-pages/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/",
+            "index": "libs/guide-pages/src/index.html",
+            "main": "libs/guide-pages/src/main.ts",
+            "tsConfig": "libs/guide-pages/src/tsconfig.app.json",
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "guide-pages:build"
+          },
+          "configurations": {}
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "guide-pages:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/guide-pages/src/../../../test.js",
+            "karmaConfig": "./karma.conf.js",
+            "scripts": [],
+            "styles": [],
+            "assets": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "./tsconfig.spec.json",
+              "apps/guia-emprendedor/src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "guide-pages-e2e": {
+      "root": "libs/guide-pages/e2e",
+      "sourceRoot": "libs/guide-pages/e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "guide-pages:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/guia-emprendedor/e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "shell": {
+      "root": "libs/shell",
+      "sourceRoot": "libs/shell/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/",
+            "index": "libs/shell/src/index.html",
+            "main": "libs/shell/src/main.ts",
+            "tsConfig": "libs/shell/src/tsconfig.app.json",
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shell:build"
+          },
+          "configurations": {}
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shell:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shell/src/../../../test.js",
+            "karmaConfig": "./karma.conf.js",
+            "scripts": [],
+            "styles": [],
+            "assets": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "./tsconfig.spec.json",
+              "apps/guia-emprendedor/src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "shell-e2e": {
+      "root": "libs/shell/e2e",
+      "sourceRoot": "libs/shell/e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "shell:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/guia-emprendedor/e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/",
+            "index": "libs/ui/src/index.html",
+            "main": "libs/ui/src/main.ts",
+            "tsConfig": "libs/ui/src/tsconfig.app.json",
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ui:build"
+          },
+          "configurations": {}
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ui/src/../../../test.js",
+            "karmaConfig": "./karma.conf.js",
+            "scripts": [],
+            "styles": [],
+            "assets": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "./tsconfig.spec.json",
+              "apps/guia-emprendedor/src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ui-e2e": {
+      "root": "libs/ui/e2e",
+      "sourceRoot": "libs/ui/e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "ui:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/guia-emprendedor/e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "guia-emprendedor",
+  "schematics": {
+    "@nrwl/schematics:component": {
+      "prefix": "app",
+      "styleext": "scss"
+    },
+    "@nrwl/schematics:directive": {
+      "prefix": "app"
+    }
+  }
+}
