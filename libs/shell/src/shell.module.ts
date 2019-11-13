@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { NxModule } from '@nrwl/nx';
 
 import { UiModule } from '@appFactory/ui';
@@ -15,7 +14,6 @@ import { UiModule } from '@appFactory/ui';
     BrowserModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
-    StoreRouterConnectingModule.forRoot(),
     UiModule
   ],
   exports: [
@@ -24,7 +22,6 @@ import { UiModule } from '@appFactory/ui';
     NxModule,
     StoreModule,
     EffectsModule,
-    StoreRouterConnectingModule,
     UiModule
   ]
 })
