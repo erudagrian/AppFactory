@@ -26,7 +26,7 @@ import { UiModule } from '@appFactory/ui';
   ]
 })
 export class ShellModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<ShellModule> {
     return {
       ngModule: ShellModule,
     };
