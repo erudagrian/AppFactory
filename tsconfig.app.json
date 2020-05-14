@@ -9,11 +9,11 @@
             ]
         }
     },
-    "exclude": [
-        "**/*.spec.ts",
-        "**/*.e2e-spec.ts",
-        "functions",
-        "node_modules",
-        "tmp"
-    ]
+  "files": [
+    "apps/guia-emprendedor/src/main.ts",
+    "apps/guia-emprendedor/src/polyfills.ts"
+  ],
+  "include": [
+    "apps/guia-emprendedor/src/**/*.d.ts"
+  ]
 }

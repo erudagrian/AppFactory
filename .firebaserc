@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "appfactory-entepreneurguide": {
+      "hosting": {
+        "guia-emprendedor": [
+          "appfactory-entepreneurguide"
+        ]
+      }
+    }
+  }
+}
